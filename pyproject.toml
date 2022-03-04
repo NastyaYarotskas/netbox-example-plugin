@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "netbox-example-plugin"
+version = "0.1.0"
+description = "NetBox Example Plugin"
+authors = ["Nastassia Yarotskas <nastassia.yarotskas@netcracker.com>"]
+license = "Apache-2.0"
+packages = [
+    { include = "netbox_example_plugin" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.dev-dependencies]
+yamllint = "^1.26.3"
+bandit = "^1.7.3"
+black = "^22.1.0"
+invoke = "^1.6.0"
+pylint = "^2.12.2"
+pylint-django = "^2.5.2"
+pydocstyle = "^6.1.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
