@@ -1,0 +1,1 @@
+# netbox-example-plugin
