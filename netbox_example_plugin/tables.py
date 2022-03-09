@@ -3,6 +3,11 @@ from .models import Animal
 from utilities.tables import BaseTable, ToggleColumn
 
 
+__all__ = (
+    'AnimalTable',
+)
+
+
 class AnimalTable(BaseTable):
 
     id = tables.LinkColumn()
@@ -11,4 +16,4 @@ class AnimalTable(BaseTable):
 
     class Meta(BaseTable.Meta):
         model = Animal
-        fields = ('id', 'name', 'sound')
+        fields = ('pk', 'name', 'sound', 'app_label', 'model')

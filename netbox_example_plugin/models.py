@@ -13,3 +13,6 @@ class Animal(ChangeLoggedModel):
 
     def get_absolute_url(self):
         return reverse('plugins:netbox_example_plugin:animal', kwargs={"pk": self.pk})
+
+    def __str__(self):
+        return self.name

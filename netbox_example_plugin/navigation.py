@@ -9,7 +9,7 @@ menu_items = (
             PluginMenuButton(
                 link="plugins:netbox_example_plugin:add_animal",
                 title="Add",
-                icon_class="fa fa-plus",
+                icon_class="mdi mdi-plus-thick",
                 color=ButtonColorChoices.GREEN,
             ),
         )
