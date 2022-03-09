@@ -3,7 +3,7 @@ from utilities.choices import ButtonColorChoices
 
 menu_items = (
     PluginMenuItem(
-        link="plugins:netbox_example_plugin:animals_list",
+        link="plugins:netbox_example_plugin:animal_list",
         link_text="Example Plugin",
         buttons=(
             PluginMenuButton(

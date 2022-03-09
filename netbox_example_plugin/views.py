@@ -14,6 +14,7 @@ class ListAnimalsView(generic.ObjectListView):
     filterset = filters.AnimalFilterSet
     filterset_form = forms.AnimalFilterForm
     table = tables.AnimalTable
+    action_buttons = ()
     template_name = 'netbox_example_plugin/animal_list.html'
 
 
@@ -28,7 +29,8 @@ class AnimalView(generic.ObjectView):
 class AnimalEditView(generic.ObjectEditView):
     queryset = Animal.objects.all()
     model_form = forms.AnimalEditForm
-    template_name = 'netbox_example_plugin/add_animal.html'
+    # template_name = 'netbox_example_plugin/add_animal.html'
+    default_return_url = 'plugins:netbox_example_plugin:animal_list'
 
 
 class AnimalBulkEditView(generic.BulkEditView):
@@ -43,3 +45,7 @@ class AnimalBulkDeleteView(generic.BulkDeleteView):
     filterset = filters.AnimalFilterSet
     table = tables.AnimalTable
     default_return_url = "plugins:netbox_example_plugin:animal_list"
+
+
+class AnimalDeleteView(generic.ObjectDeleteView):
+    queryset = Animal.objects.all()

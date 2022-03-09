@@ -20,6 +20,11 @@ class AnimalFilterForm(BootstrapMixin, forms.Form):
 
 
 class AnimalBulkEditForm(BulkEditForm):
+    pk = forms.ModelMultipleChoiceField(
+        queryset=Animal.objects.all(),
+        widget=forms.MultipleHiddenInput
+    )
+
     name = forms.CharField(
         max_length=200,
         required=True
@@ -29,3 +34,6 @@ class AnimalBulkEditForm(BulkEditForm):
         max_length=200,
         required=True
     )
+
+    class Meta:
+        nullable_fields = []

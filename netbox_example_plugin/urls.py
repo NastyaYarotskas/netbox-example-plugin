@@ -4,11 +4,11 @@ from . import views
 app_name = 'netbox_example_plugin'
 
 urlpatterns = [
-    path("", views.ListAnimalsView.as_view(), name="animals_list"),
+    path("", views.ListAnimalsView.as_view(), name="animal_list"),
     path("<int:pk>/", views.AnimalView.as_view(), name="animal"),
     path('add_animal/', views.AnimalEditView.as_view(), name='add_animal'),
     path("<int:pk>/edit/", views.AnimalEditView.as_view(), name="animal_edit"),
     path("animal_bulk_edit/", views.AnimalBulkEditView.as_view(), name="animal_bulk_edit"),
     path("annimal_bulk_delete/", views.AnimalBulkDeleteView.as_view(), name="animal_bulk_delete"),
-    path('animal_add/', views.AnimalEditView.as_view(), name='animal_add'),
+    path('<int:pk>/delete/', views.AnimalDeleteView.as_view(), name='animal_delete'),
 ]

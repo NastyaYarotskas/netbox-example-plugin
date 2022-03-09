@@ -9,7 +9,7 @@ __all__ = (
 
 
 class AnimalTable(BaseTable):
-
+    pk = ToggleColumn()
     id = tables.LinkColumn()
     name = tables.LinkColumn()
     sound = tables.LinkColumn()
