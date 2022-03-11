@@ -1,11 +1,13 @@
 from django.db import models
 from django.urls import reverse
 
-from netbox.models import ChangeLoggedModel
+from netbox.models import PrimaryModel
 from utilities.querysets import RestrictedQuerySet
+from extras.utils import extras_features
 
 
-class Animal(ChangeLoggedModel):
+@extras_features('custom_fields', 'custom_links', 'export_templates', 'tags', 'webhooks')
+class Animal(PrimaryModel):
     name = models.CharField(max_length=64)
     sound = models.CharField(max_length=64)
 

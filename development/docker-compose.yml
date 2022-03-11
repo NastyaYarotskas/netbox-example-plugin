@@ -41,6 +41,8 @@ services:
     env_file: dev.env
     volumes:
       - pgdata_netbox_example:/var/lib/postgresql/data
+    ports:
+      - "6432:5432"
   redis:
     image: redis:5-alpine
     command:

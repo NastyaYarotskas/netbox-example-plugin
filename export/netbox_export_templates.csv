@@ -1,0 +1,9 @@
+name,content_type,description,mime_type,file_extension,as_attachment,template_code
+Export Template,extras | export template,,text/plain,csv,True,name,content_type,description,mime_type,file_extension,as_attachment,template_code
+{%- for template in queryset %}
+{{ template.name }},{{ template.content_type}},{{ template.description}},{{ template.mime_type}},{{ template.file_extension}},{{ template.as_attachment}},{{ template.template_code}}
+{%- endfor %}
+Animal Export Template,netbox_example_plugin | animal,,text/plain,csv,True,name,sound
+{%- for animal in queryset %}
+{{ animal.name }},{{ animal.sound }}
+{%- endfor %}
