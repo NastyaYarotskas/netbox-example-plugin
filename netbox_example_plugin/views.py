@@ -49,3 +49,9 @@ class AnimalBulkDeleteView(generic.BulkDeleteView):
 
 class AnimalDeleteView(generic.ObjectDeleteView):
     queryset = Animal.objects.all()
+
+
+class AnimalBulkImportView(generic.BulkImportView):
+    queryset = Animal.objects.filter()
+    model_form = forms.AnimalCSVForm
+    table = tables.AnimalTable

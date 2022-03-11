@@ -1,12 +1,14 @@
 {% extends 'generic/object_list.html' %}
+{% load buttons %}
 
 {% block extra_controls %}
 {% if permissions.add %}
-<a href="{% url 'plugins:netbox_example_plugin:add_animal' %}" class="btn btn-sm btn-success">
-    <span class="mdi mdi-plus-thick" aria-hidden="true"></span> Add
-</a>
+    {% add_button 'plugins:netbox_example_plugin:add_animal' %}
+    {% import_button 'plugins:netbox_example_plugin:import_animals' %}
+    {% export_button content_type %}
 {% endif %}
 {% endblock %}
+
 {% block bulk_buttons %}
 {% if permissions.change %}
 <button type="submit" name="_edit" formaction="

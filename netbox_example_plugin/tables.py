@@ -10,10 +10,9 @@ __all__ = (
 
 class AnimalTable(BaseTable):
     pk = ToggleColumn()
-    id = tables.LinkColumn()
     name = tables.LinkColumn()
     sound = tables.LinkColumn()
 
     class Meta(BaseTable.Meta):
         model = Animal
-        fields = ('pk', 'name', 'sound', 'app_label', 'model')
+        fields = ('pk', 'name', 'sound')

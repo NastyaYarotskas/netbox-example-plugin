@@ -11,4 +11,5 @@ urlpatterns = [
     path("animal_bulk_edit/", views.AnimalBulkEditView.as_view(), name="animal_bulk_edit"),
     path("annimal_bulk_delete/", views.AnimalBulkDeleteView.as_view(), name="animal_bulk_delete"),
     path('<int:pk>/delete/', views.AnimalDeleteView.as_view(), name='animal_delete'),
+    path('import_animals/', views.AnimalBulkImportView.as_view(), name='import_animals'),
 ]

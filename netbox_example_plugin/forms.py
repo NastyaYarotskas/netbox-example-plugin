@@ -1,6 +1,6 @@
 from django import forms
 from utilities.forms import (
-    BootstrapMixin, BulkEditForm
+    BootstrapMixin, BulkEditForm, CSVModelForm
 )
 from .models import Animal
 
@@ -37,3 +37,9 @@ class AnimalBulkEditForm(BulkEditForm):
 
     class Meta:
         nullable_fields = []
+
+
+class AnimalCSVForm(CSVModelForm):
+    class Meta:
+        model = Animal
+        fields = ['id', 'name', 'sound']
