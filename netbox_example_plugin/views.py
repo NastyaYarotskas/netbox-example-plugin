@@ -1,3 +1,7 @@
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from django.db import transaction
+
 from netbox.views import generic
 
 from .models import Animal
@@ -55,3 +59,16 @@ class AnimalBulkImportView(generic.BulkImportView):
     queryset = Animal.objects.filter()
     model_form = forms.AnimalCSVForm
     table = tables.AnimalTable
+
+
+def test(request):
+    print(request)
+    print(request.POST.getlist('pk'))
+    selected_objects = Animal.objects.all().filter(pk__in=request.POST.getlist('pk'))
+    print(selected_objects)
+    with transaction.atomic():
+        for obj in selected_objects:
+            obj.sound = 'new'
+            obj.save()
+            print(obj.sound)
+    return HttpResponseRedirect(reverse('plugins:netbox_example_plugin:animal_list'))

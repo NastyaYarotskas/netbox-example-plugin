@@ -12,4 +12,5 @@ urlpatterns = [
     path("annimal_bulk_delete/", views.AnimalBulkDeleteView.as_view(), name="animal_bulk_delete"),
     path('<int:pk>/delete/', views.AnimalDeleteView.as_view(), name='animal_delete'),
     path('import_animals/', views.AnimalBulkImportView.as_view(), name='import_animals'),
+    path('reverse_animals/', views.test, name='reverse_animals'),
 ]

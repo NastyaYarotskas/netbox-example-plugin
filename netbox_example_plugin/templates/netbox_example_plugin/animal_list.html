@@ -23,5 +23,9 @@
         class="btn btn-danger btn-sm">
     <span class="mdi mdi-trash-can-outline" aria-hidden="true"></span> Delete Selected
 </button>
+    <button type="submit" formaction="{% url 'plugins:netbox_example_plugin:reverse_animals' %}{% if request.GET %}?{{ request.GET.urlencode }}{% endif %}"
+            class="btn btn-success btn-sm">
+        Reverse Animals
+    </button>
 {% endif %}
 {% endblock %}
