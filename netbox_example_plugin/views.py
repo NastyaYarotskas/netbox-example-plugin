@@ -8,6 +8,7 @@ from .models import Animal
 from . import tables
 from . import forms
 from . import filters
+from .choices import AnimalStatusChoices
 
 
 class ListAnimalsView(generic.ObjectListView):
@@ -61,14 +62,19 @@ class AnimalBulkImportView(generic.BulkImportView):
     table = tables.AnimalTable
 
 
-def test(request):
-    print(request)
-    print(request.POST.getlist('pk'))
+def free_animals(request):
     selected_objects = Animal.objects.all().filter(pk__in=request.POST.getlist('pk'))
-    print(selected_objects)
     with transaction.atomic():
         for obj in selected_objects:
-            obj.sound = 'new'
+            obj.status = AnimalStatusChoices.STATUS_FREE
             obj.save()
-            print(obj.sound)
+    return HttpResponseRedirect(reverse('plugins:netbox_example_plugin:animal_list'))
+
+
+def busy_animals(request):
+    selected_objects = Animal.objects.all().filter(pk__in=request.POST.getlist('pk'))
+    with transaction.atomic():
+        for obj in selected_objects:
+            obj.status = AnimalStatusChoices.STATUS_BUSY
+            obj.save()
     return HttpResponseRedirect(reverse('plugins:netbox_example_plugin:animal_list'))

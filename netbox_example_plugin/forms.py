@@ -3,12 +3,13 @@ from utilities.forms import (
     BootstrapMixin, BulkEditForm, CSVModelForm
 )
 from .models import Animal
+from .choices import AnimalStatusChoices
 
 
 class AnimalEditForm(BootstrapMixin, forms.ModelForm):
     class Meta:
         model = Animal
-        fields = ('name', 'sound')
+        fields = ('name', 'sound', 'status')
 
 
 class AnimalFilterForm(BootstrapMixin, forms.Form):
@@ -35,6 +36,11 @@ class AnimalBulkEditForm(BulkEditForm):
         required=True
     )
 
+    status = forms.ChoiceField(
+        choices=AnimalStatusChoices,
+        required=False
+    )
+
     class Meta:
         nullable_fields = []
 
@@ -42,4 +48,4 @@ class AnimalBulkEditForm(BulkEditForm):
 class AnimalCSVForm(CSVModelForm):
     class Meta:
         model = Animal
-        fields = ['id', 'name', 'sound']
+        fields = ['id', 'name', 'sound', 'status']

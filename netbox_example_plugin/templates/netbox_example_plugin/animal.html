@@ -37,6 +37,12 @@
                         <td>Sound</td>
                         <td>{{ object.sound }}</td>
                     </tr>
+                    <tr>
+                        <td>Status</td>
+                        <td>
+                            <span class="badge bg-{{ object.get_status_class }}">{{ object.get_status_display }}</span>
+                        </td>
+                    </tr>
                 </table>
             </div>
         </div>
